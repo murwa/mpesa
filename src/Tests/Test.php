@@ -46,7 +46,7 @@ class Test
      */
     protected function getTestFileName(): string
     {
-        return __DIR__ . "Test.php/" . $this->test . ".json";
+        return __DIR__ . "/" . $this->test . ".json";
     }
 
     /**

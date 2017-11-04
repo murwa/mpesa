@@ -3,7 +3,8 @@
   "description": "Safaricom M-Pesa integration",
   "type": "library",
   "require": {
-    "laravel/framework": "~5.5"
+    "laravel/framework": "~5.5",
+    "guzzlehttp/guzzle": "^6.3"
   },
   "license": "MIT",
   "authors": [
