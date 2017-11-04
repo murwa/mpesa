@@ -1,5 +1,5 @@
 {
-  "name": "mxgel/m-pesa",
+  "name": "mxgel/mpesa",
   "description": "Safaricom M-Pesa integration",
   "type": "library",
   "require": {
@@ -15,7 +15,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Mxgel\\MPesa": "src/"
+      "Mxgel\\MPesa\\": "src/"
     }
   },
   "minimum-stability": "dev",
