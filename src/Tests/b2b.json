@@ -1,0 +1,10 @@
+{
+  "commandID": "BusinessPayBill",
+  "amount": 10,
+  "partyA": "600147",
+  "partyB": 600000,
+  "remarks": "B2C Payment",
+  "occasion": "Birthday",
+  "recieverIdentifierType": 4,
+  "senderIdentifierType": 4
+}

@@ -1,0 +1,11 @@
+{
+  "commandID": "TransactionReversal",
+  "amount": 1,
+  "receiverParty": 600729,
+  "remarks": "B2C Payment",
+  "occasion": "Birthday",
+  "recieverIdentifierType": 4,
+  "senderIdentifierType": 4,
+  "Initiator": "testapi0286",
+  "TransactionID": "LJU4XA1ZXW"
+}

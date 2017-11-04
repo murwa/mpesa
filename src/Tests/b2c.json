@@ -1,0 +1,8 @@
+{
+  "commandID": "BusinessPayment",
+  "amount": 10,
+  "partyA": "600147",
+  "partyB": 254708374149,
+  "remarks": "B2C Payment",
+  "occasion": "Birthday"
+}
