@@ -94,11 +94,12 @@ class LNMO extends LNM
     /**
      * @param string|null $key
      *
-     * @return \App\Models\User|mixed|null
+     * @return mixed
      */
     protected function getUser(string $key = null)
     {
-        $user = User::wherePhoneNumber($this->getPhoneNumber())->first();
+        $userModel = config('mpesa.user_model');
+        $user = $userModel::wherePhoneNumber($this->getPhoneNumber())->first();
 
         return $user && $key ? $user->{$key} : $user;
     }
@@ -127,10 +128,10 @@ class LNMO extends LNM
     /**
      * Create an LNMO Request
      *
-     * @param float    $amount
-     * @param int      $phoneNumber
+     * @param float $amount
+     * @param int $phoneNumber
      * @param int|null $shortCode
-     * @param string   $desc
+     * @param string $desc
      *
      * @return \Mxgel\MPesa\Requests\LNMO
      */
