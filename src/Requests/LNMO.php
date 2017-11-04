@@ -16,6 +16,7 @@ namespace Mxgel\MPesa\Requests;
  */
 use App\Models\MPesaLNMO;
 use App\Models\User;
+use Event;
 use Mxgel\MPesa\Responses\Response;
 use Carbon\Carbon;
 
@@ -111,16 +112,7 @@ class LNMO extends LNM
     public function execute(): Response
     {
         $response = parent::execute();
-
-        MPesaLNMO::forceCreate([
-            'business_short_code' => $this->getBusinessShortCode(),
-            'account_reference'   => $this->getAccountReference(),
-            'merchant_request_id' => $response->getMerchantRequestID(),
-            'checkout_request_id' => $response->getCheckoutRequestID(),
-            'amount'              => $this->getAmount(),
-            'msisdn'              => $this->getPhoneNumber(),
-            'user_id'             => $this->getUser('id'),
-        ]);
+        Event::dispatch('mpesa:requests.lnmo.executed', $response);
 
         return $response;
     }
