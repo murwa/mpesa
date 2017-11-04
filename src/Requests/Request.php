@@ -182,6 +182,11 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     protected $resultRouteName;
 
     /**
+     * @var Response
+     */
+    protected $response;
+
+    /**
      * Request constructor.
      *
      * @param null $content
@@ -680,6 +685,26 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     public function getResultRouteName(): string
     {
         return $this->resultRouteName;
+    }
+
+    /**
+     * @param \Mxgel\MPesa\Responses\Response $response
+     *
+     * @return Request
+     */
+    public function setResponse(Response $response): Request
+    {
+        $this->response = $response;
+
+        return $this;
+    }
+
+    /**
+     * @return \Mxgel\MPesa\Responses\Response
+     */
+    public function getResponse(): ?Response
+    {
+        return $this->response;
     }
 
     /**

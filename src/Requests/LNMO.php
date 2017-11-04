@@ -112,15 +112,9 @@ class LNMO extends LNM
     public function execute(): Response
     {
         $response = parent::execute();
-        Event::dispatch('mpesa:requests.lnmo.executed', [
-            'business_short_code' => $this->getBusinessShortCode(),
-            'account_reference'   => $this->getAccountReference(),
-            'merchant_request_id' => $response->getMerchantRequestID(),
-            'checkout_request_id' => $response->getCheckoutRequestID(),
-            'amount'              => $this->getAmount(),
-            'msisdn'              => $this->getPhoneNumber(),
-            'user_id'             => $this->getUser('id'),
-        ]);
+
+        $this->setResponse($response);
+        Event::dispatch('mpesa:requests.lnmo.executed', $this);
 
         return $response;
     }
