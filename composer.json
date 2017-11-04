@@ -22,7 +22,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Mxgel\\USSD\\ServiceProvider"
+        "Mxgel\\MPesa\\ServiceProvider"
       ]
     }
   }
