@@ -10,7 +10,6 @@ namespace Mxgel\MPesa\Requests;
 
 //
 
-
 /**
  * Class B2B
  *

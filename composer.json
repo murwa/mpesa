@@ -1,16 +1,28 @@
 {
-    "name": "mxgel/m-pesa",
-    "description": "Safaricom M-Pesa integration",
-    "type": "library",
-    "require": {
-        "laravel/framework": "5.5"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Peter Murwa",
-            "email": "wanjala.pet@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev"
+  "name": "mxgel/m-pesa",
+  "description": "Safaricom M-Pesa integration",
+  "type": "library",
+  "require": {
+    "laravel/framework": "~5.5"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Peter Murwa",
+      "email": "wanjala.pet@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Mxgel\\MPesa": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Mxgel\\USSD\\ServiceProvider"
+      ]
+    }
+  }
 }
