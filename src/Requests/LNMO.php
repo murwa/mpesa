@@ -97,7 +97,7 @@ class LNMO extends LNM
      *
      * @return mixed
      */
-    public function getUser(string $key = null)
+    protected function getUser(string $key = null)
     {
         $userModel = config('mpesa.user_model');
         $user = $userModel::wherePhoneNumber($this->getPhoneNumber())->first();
@@ -112,7 +112,15 @@ class LNMO extends LNM
     public function execute(): Response
     {
         $response = parent::execute();
-        Event::dispatch('mpesa:requests.lnmo.executed', $response);
+        Event::dispatch('mpesa:requests.lnmo.executed', [
+            'business_short_code' => $this->getBusinessShortCode(),
+            'account_reference'   => $this->getAccountReference(),
+            'merchant_request_id' => $response->getMerchantRequestID(),
+            'checkout_request_id' => $response->getCheckoutRequestID(),
+            'amount'              => $this->getAmount(),
+            'msisdn'              => $this->getPhoneNumber(),
+            'user_id'             => $this->getUser('id'),
+        ]);
 
         return $response;
     }
