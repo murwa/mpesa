@@ -97,7 +97,7 @@ class LNMO extends LNM
      *
      * @return mixed
      */
-    protected function getUser(string $key = null)
+    public function getUser(string $key = null)
     {
         $userModel = config('mpesa.user_model');
         $user = $userModel::wherePhoneNumber($this->getPhoneNumber())->first();

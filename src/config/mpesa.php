@@ -28,4 +28,5 @@ return [
         "confirmation" => "mpesa.confirmation",
         "callback"     => "mpesa.callback",
     ],
+    'user_model'      => \App\User::class,
 ];
