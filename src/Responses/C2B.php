@@ -17,6 +17,25 @@ namespace Mxgel\MPesa\Responses;
 class C2B extends Response
 {
     /**
+     * @var array
+     */
+    protected $only = [
+        "transactionType",
+        "transID",
+        "transTime",
+        "transAmount",
+        "businessShortCode",
+        "billRefNumber",
+        "invoiceNumber",
+        "orgAccountBalance",
+        "thirdPartyTransID",
+        "msisdn",
+        "firstName",
+        "middleName",
+        "lastName",
+    ];
+
+    /**
      * @var string
      */
     protected $transactionType;
@@ -43,15 +62,15 @@ class C2B extends Response
     /**
      * @var string
      */
-    protected $invoiceNumber;
+    protected $invoiceNumber = null;
     /**
      * @var float
      */
-    protected $orgAccountBalance;
+    protected $orgAccountBalance = null;
     /**
      * @var string
      */
-    protected $thirdPartyTransID;
+    protected $thirdPartyTransID = null;
     /**
      * @var string
      */
@@ -192,7 +211,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getInvoiceNumber(): string
+    public function getInvoiceNumber(): ?string
     {
         return $this->invoiceNumber;
     }
@@ -202,7 +221,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setInvoiceNumber(string $invoiceNumber): C2B
+    public function setInvoiceNumber(?string $invoiceNumber): C2B
     {
         $this->invoiceNumber = $invoiceNumber;
 
@@ -212,7 +231,7 @@ class C2B extends Response
     /**
      * @return float
      */
-    public function getOrgAccountBalance(): float
+    public function getOrgAccountBalance(): ?float
     {
         return $this->orgAccountBalance;
     }
@@ -222,7 +241,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setOrgAccountBalance(float $orgAccountBalance): C2B
+    public function setOrgAccountBalance(?float $orgAccountBalance): C2B
     {
         $this->orgAccountBalance = $orgAccountBalance;
 
@@ -232,7 +251,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getThirdPartyTransID(): string
+    public function getThirdPartyTransID(): ?string
     {
         return $this->thirdPartyTransID;
     }
@@ -242,7 +261,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setThirdPartyTransID(string $thirdPartyTransID): C2B
+    public function setThirdPartyTransID(?string $thirdPartyTransID): C2B
     {
         $this->thirdPartyTransID = $thirdPartyTransID;
 

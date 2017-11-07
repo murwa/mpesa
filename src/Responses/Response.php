@@ -20,24 +20,6 @@ use Mxgel\MPesa\Model;
 class Response extends Model implements ResultCodesContract
 {
     /**
-     * @var array
-     */
-    protected $only = [
-        "transactionType",
-        "transID",
-        "transTime",
-        "transAmount",
-        "businessShortCode",
-        "billRefNumber",
-        "invoiceNumber",
-        "orgAccountBalance",
-        "thirdPartyTransID",
-        "msisdn",
-        "firstName",
-        "middleName",
-        "lastName",
-    ];
-    /**
      * @var string
      */
     protected $merchantRequestID;
