@@ -9,6 +9,7 @@
 namespace Mxgel\MPesa\Responses;
 
 
+use Mxgel\MPesa\Contracts\ResultCodesContract;
 use Mxgel\MPesa\Model;
 
 /**
@@ -16,7 +17,7 @@ use Mxgel\MPesa\Model;
  *
  * @package Mxgel\MPesa\Responses
  */
-class Response extends Model
+class Response extends Model implements ResultCodesContract
 {
     /**
      * @var string
@@ -256,6 +257,6 @@ class Response extends Model
      */
     public function completed()
     {
-        return $this->getResultCode() == 0;
+        return $this->getResultCode() == self::RESULT_SUCCESS;
     }
 }
