@@ -27,6 +27,9 @@ class SafaricomException extends Exception
      */
     public function __construct(?string $message = null, Exception $previous = null, $code = 0)
     {
+        dump($message);
+        dump($previous);
+        dump($code);
         parent::__construct($message, $code, $previous);
     }
 
