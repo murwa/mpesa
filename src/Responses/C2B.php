@@ -8,6 +8,7 @@
 
 namespace Mxgel\MPesa\Responses;
 
+use Illuminate\Support\Str;
 
 /**
  * Class C2B
@@ -346,5 +347,18 @@ class C2B extends Response
         $this->lastName = $lastName;
 
         return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function forDB(): array
+    {
+        $data = $this->toArray();
+        $keys = array_map(function ($key) {
+            return Str::snake($key);
+        }, array_keys($data));
+
+        return array_merge($keys, array_values($data));
     }
 }
