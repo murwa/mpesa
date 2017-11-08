@@ -9,7 +9,6 @@
 namespace Mxgel\MPesa\Exceptions;
 
 //
-
 /**
  * Class InvalidCertificateException
  *
@@ -17,5 +16,8 @@ namespace Mxgel\MPesa\Exceptions;
  */
 class InvalidCertificateException extends SafaricomException
 {
+    /**
+     * @var string
+     */
     protected $message = "Invalid certificate";
 }

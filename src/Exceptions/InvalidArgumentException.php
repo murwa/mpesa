@@ -9,12 +9,6 @@
 namespace Mxgel\MPesa\Exceptions;
 
 //
-
-/**
- * Class InvalidArgumentException
- *
- * @package Mxgel\MPesa\Exceptions
- */
 /**
  * Class InvalidArgumentException
  *

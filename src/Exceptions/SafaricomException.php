@@ -9,39 +9,37 @@
 namespace Mxgel\MPesa\Exceptions;
 
 
-use Symfony\Component\HttpKernel\Exception\HttpException;
+use Exception;
 
 /**
  * Class SafaricomException
  *
  * @package Mxgel\MPesa\Exceptions
  */
-class SafaricomException extends HttpException
+class SafaricomException extends Exception
 {
     /**
      * SafaricomException constructor.
      *
-     * @param null            $message
-     * @param int             $statusCode
+     * @param null|string $message
      * @param \Exception|null $previous
-     * @param array           $headers
-     * @param int             $code
+     * @param int $code
      */
-    public function __construct($message = null, $statusCode = 500, \Exception $previous = null, array $headers = [], $code = 0)
+    public function __construct(?string $message = null, Exception $previous = null, $code = 0)
     {
-        parent::__construct($statusCode, $message, $previous, $headers, $code);
+        parent::__construct($message, $code, $previous);
     }
 
     /**
-     * @param string          $content
+     * @param string $content
      * @param \Exception|null $previous
      *
      * @return \Mxgel\MPesa\Exceptions\SafaricomException
      */
-    public static function createFromString(string $content, \Exception $previous = null): SafaricomException
+    public static function createFromString(string $content, Exception $previous = null): SafaricomException
     {
         $content = json_decode($content, true);
 
-        return new self(array_get($content, 'errorMessage'), array_get($content, 'errorCode'), $previous);
+        return new self(array_get($content, 'errorMessage'), $previous, array_get($content, 'errorCode'));
     }
 }
