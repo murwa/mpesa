@@ -33,7 +33,7 @@ class SafaricomException extends Exception
     public function __construct(?string $message = null, Exception $previous = null, $code = 0)
     {
         $this->setErrorCode($code);
-        $code = substr($code, strpos($code, '.'));
+        $code = substr($code, 0, strpos($code, '.'));
         dump($code);
 
         parent::__construct($message, $code, $previous);
