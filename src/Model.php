@@ -83,7 +83,7 @@ abstract class Model implements EndpointsContract, IdentifierContract
     protected static function getHttpClient(array $options = [])
     {
         return new Client(array_merge([
-            'base_uri' => self::SANDBOX_URL,
+            'base_uri' => config('mpesa.environment') === 'live' ? self::LIVE_URL : self::SANDBOX_URL,
         ], $options));
     }
 
@@ -104,7 +104,7 @@ abstract class Model implements EndpointsContract, IdentifierContract
         foreach ($props as $prop) {
             $name = $prop->getName();
             if (!in_array($name, $hidden) && (in_array($name, $this->only) || !count($this->only))) {
-                $array[ studly_case($name) ] = $this->get($name);
+                $array[studly_case($name)] = $this->get($name);
             }
         }
 

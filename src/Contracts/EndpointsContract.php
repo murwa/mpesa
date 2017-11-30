@@ -25,7 +25,7 @@ interface EndpointsContract
     /**
      * Live
      */
-    const LIVE_URL = "https://safaricom.co.ke/";
+    const LIVE_URL = "https://api.safaricom.co.ke";
 
     /**
      * Generate access token on sandbox
@@ -52,7 +52,7 @@ interface EndpointsContract
      */
     const API_C2B_REGISTER_URL = "mpesa/c2b/v1/registerurl";
     /**
-     *
+     * Sandbox C2B Simulate
      */
     const API_C2B_SIMULATE_URL = "mpesa/c2b/v1/simulate";
     /**

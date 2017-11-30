@@ -7,6 +7,7 @@
  */
 
 return [
+    'environment'     => 'sandbox',
     'key'             => '7q3M4GhnHfxXR9eonHovQGlAKtZvAa8A',
     'secret'          => 'G6X66FyGyWY84gJH',
     'short_codes'     => [
