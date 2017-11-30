@@ -26,8 +26,8 @@ class Auth extends Model implements EndpointsContract
     {
         $response = self::getHttpClient()->get(self::API_GENERATE_ACCESS_TOKEN, [
             'auth' => [
-                config('services.safaricom.key'),
-                config('services.safaricom.secret'),
+                config('mpesa.key'),
+                config('mpesa.secret'),
             ],
         ]);
 

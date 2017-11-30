@@ -131,7 +131,7 @@ class LNMO extends LNM
      */
     public static function make(float $amount, int $phoneNumber, ?int $shortCode = null, string $desc = "Transaction")
     {
-        $shortCode = $shortCode ?: config('services.safaricom.LNMO_short_code');
+        $shortCode = $shortCode ?: config('mpesa.LNMO_short_code');
 
         return new self([
             "businessShortCode" => $shortCode,
