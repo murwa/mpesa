@@ -303,7 +303,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
         if ($this->confirmationURL) {
             return $this->confirmationURL;
         } else {
-            $route = config('services.safaricom.routes.confirmation');
+            $route = config('mpesa.routes.confirmation');
 
             return $this->setConfirmationURL(route($route))->getConfirmationURL();
         }
@@ -317,7 +317,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
         if ($this->validationURL) {
             return $this->validationURL;
         } else {
-            $route = config('services.safaricom.routes.validation');
+            $route = config('mpesa.routes.validation');
 
             return $this->setValidationURL(route($route))->getValidationURL();
         }
