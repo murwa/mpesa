@@ -92,7 +92,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getTransactionType(): string
+    public function getTransactionType(): ?string
     {
         return $this->transactionType;
     }
@@ -102,7 +102,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setTransactionType(string $transactionType): C2B
+    public function setTransactionType(?string $transactionType): C2B
     {
         $this->transactionType = $transactionType;
 
@@ -312,7 +312,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getMiddleName(): string
+    public function getMiddleName(): ?string
     {
         return $this->middleName;
     }
@@ -322,7 +322,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setMiddleName(string $middleName): C2B
+    public function setMiddleName(?string $middleName): C2B
     {
         $this->middleName = $middleName;
 
@@ -332,7 +332,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }
@@ -342,7 +342,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setLastName(string $lastName): C2B
+    public function setLastName(?string $lastName): C2B
     {
         $this->lastName = $lastName;
 
