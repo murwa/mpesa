@@ -204,7 +204,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      */
     public function getShortCode(): string
     {
-        return $this->shortCode ?: config('services.safaricom.short_codes.0.short_code');
+        return $this->shortCode ?: config('mpesa.short_codes.0.short_code');
     }
 
     /**
@@ -379,7 +379,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
         if ($this->queueTimeOutURL) {
             return $this->queueTimeOutURL;
         } else {
-            $route = config('services.safaricom.routes.timeout');
+            $route = config('mpesa.routes.timeout');
 
             return $this->setQueueTimeOutURL(route($route))->getQueueTimeOutURL();
         }
@@ -521,7 +521,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
         if ($this->initiatorName) {
             return $this->initiatorName;
         } else {
-            $name = config('services.safaricom.short_codes.0.initiator_name');
+            $name = config('mpesa.short_codes.0.initiator_name');
 
             return $this->setInitiatorName($name)->getInitiatorName();
         }
@@ -547,7 +547,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
         if ($this->initiator) {
             return $this->initiator;
         } else {
-            $name = config('services.safaricom.short_codes.0.initiator_name');
+            $name = config('mpesa.short_codes.0.initiator_name');
 
             return $this->setInitiator($name)->getInitiator();
         }
@@ -641,7 +641,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
         if ($this->callBackURL) {
             return $this->callBackURL;
         } else {
-            $route = config('services.safaricom.routes.callback');
+            $route = config('mpesa.routes.callback');
 
             return $this->setCallBackURL(route($route))->getCallBackURL();
         }
@@ -801,7 +801,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     protected function generatePassword(): string
     {
         $code = $this->getBusinessShortCode();
-        $passKey = config('services.safaricom.LNMO_passkey');
+        $passKey = config('mpesa.LNMO_passkey');
         $timestamp = $this->getTimestamp();
 
         return base64_encode("{$code}{$passKey}{$timestamp}");
