@@ -25,7 +25,7 @@ class Security
      */
     public static function generateCredentials(): string
     {
-        $password = config('services.safaricom.short_codes.0.security_credential');
+        $password = config('mpesa.short_codes.0.security_credential');
         $resource = self::getCertificateResource();
 
         openssl_public_encrypt($password, $encrypted, $resource, OPENSSL_PKCS1_PADDING);
