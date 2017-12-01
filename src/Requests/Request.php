@@ -708,6 +708,18 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     }
 
     /**
+     * @param string $method
+     *
+     * @return Request
+     */
+    public function setMethod(string $method): Request
+    {
+        $this->method = $method;
+
+        return $this;
+    }
+
+    /**
      * @return int
      */
     public function getBusinessShortCode(): int
