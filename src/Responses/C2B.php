@@ -356,7 +356,7 @@ class C2B extends Response
     {
         $data = $this->toArray();
         $keys = array_map(function ($key) {
-            return Str::snake($key);
+            return str_replace('i_d', 'id', Str::snake($key));
         }, array_keys($data));
 
         return array_merge($keys, array_values($data));
