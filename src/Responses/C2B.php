@@ -359,6 +359,6 @@ class C2B extends Response
             return str_replace('i_d', 'id', Str::snake($key));
         }, array_keys($data));
 
-        return array_merge($keys, array_values($data));
+        return array_combine($keys, array_values($data));
     }
 }
