@@ -835,6 +835,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      * Execute request and return response
      *
      * @return \Mxgel\MPesa\Responses\Response
+     * @throws \Mxgel\MPesa\Exceptions\SafaricomException
      */
     public function execute(): Response
     {
