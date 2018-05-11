@@ -18,6 +18,8 @@ use Carbon\Carbon;
  */
 abstract class LNM extends Request
 {
+    private $passKey;
+
     /**
      * LNM constructor.
      *
@@ -28,7 +30,27 @@ abstract class LNM extends Request
         parent::__construct($content);
 
         $this->setTimestamp(with(new Carbon('now'))->format($this->getDateFormat()));
-        $this->setPassword($this->generatePassword());
+        $this->setPassword($this->generatePassword($this->getPassKey()));
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassKey()
+    {
+        return $this->passKey;
+    }
+
+    /**
+     * @param string $passKey
+     *
+     * @return \Mxgel\MPesa\Requests\LNM
+     */
+    public function setPassKey($passKey)
+    {
+        $this->passKey = $passKey;
+
+        return $this;
     }
 
 }

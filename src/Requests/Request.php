@@ -764,6 +764,8 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     }
 
     /**
+     * @param $passKey
+     *
      * @return string
      */
     protected function generatePassword($passKey)
