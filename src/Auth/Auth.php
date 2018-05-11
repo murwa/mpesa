@@ -30,6 +30,11 @@ class Auth extends Model implements EndpointsContract
     private $secret;
 
     /**
+     * @var
+     */
+    private $token;
+
+    /**
      * Fetch access token
      *
      * @return \Mxgel\MPesa\Auth\AccessToken
@@ -37,6 +42,9 @@ class Auth extends Model implements EndpointsContract
      */
     public function accessToken()
     {
+        if ($this->getToken() && !$this->getToken()->expired()) {
+            return $this->getToken();
+        }
         $response = Model::getHttpClient()->get(self::API_GENERATE_ACCESS_TOKEN, [
             'auth' => [
                 $this->key,
@@ -44,7 +52,10 @@ class Auth extends Model implements EndpointsContract
             ],
         ]);
 
-        return new AccessToken($response->getBody()->getContents());
+        $token = new AccessToken($response->getBody()->getContents());
+        $this->setToken($token);
+
+        return $token;
     }
 
     /**
@@ -80,6 +91,26 @@ class Auth extends Model implements EndpointsContract
     public function setSecret($secret)
     {
         $this->secret = $secret;
+
+        return $this;
+    }
+
+    /**
+     * @return \Mxgel\MPesa\Auth\AccessToken
+     */
+    private function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param mixed $token
+     *
+     * @return \Mxgel\MPesa\Auth\Auth
+     */
+    private function setToken($token)
+    {
+        $this->token = $token;
 
         return $this;
     }
