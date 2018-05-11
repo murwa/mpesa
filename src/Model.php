@@ -54,7 +54,7 @@ abstract class Model implements EndpointsContract, IdentifierContract
      *
      * @return \Mxgel\MPesa\Model
      */
-    protected function createFromString(string $content): Model
+    protected function createFromString($content)
     {
         return $this->createFromArray(json_decode($content, true));
     }
@@ -64,7 +64,7 @@ abstract class Model implements EndpointsContract, IdentifierContract
      *
      * @return \Mxgel\MPesa\Model
      */
-    protected function createFromArray(array $content): Model
+    protected function createFromArray($content)
     {
         foreach ($content as $key => $value) {
             $this->set($key, $value);
@@ -80,7 +80,7 @@ abstract class Model implements EndpointsContract, IdentifierContract
      *
      * @return \GuzzleHttp\Client
      */
-    protected static function getHttpClient(array $options = [])
+    protected static function getHttpClient($options = [])
     {
         return new Client(array_merge([
             'base_uri' => config('mpesa.environment') === 'live' ? self::LIVE_URL : self::SANDBOX_URL,
@@ -90,7 +90,7 @@ abstract class Model implements EndpointsContract, IdentifierContract
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         $array = [];
         $hidden = array_merge($this->hidden, [
@@ -116,7 +116,7 @@ abstract class Model implements EndpointsContract, IdentifierContract
      *
      * @return string
      */
-    public function toJson(): string
+    public function toJson()
     {
         return json_encode($this->toArray());
     }
@@ -138,7 +138,7 @@ abstract class Model implements EndpointsContract, IdentifierContract
      *
      * @return mixed
      */
-    public function get(string $name)
+    public function get($name)
     {
         $name = camel_case($name);
         $method = camel_case("get_{$name}");
@@ -155,7 +155,7 @@ abstract class Model implements EndpointsContract, IdentifierContract
      *
      * @return \Mxgel\MPesa\Model
      */
-    public function set(string $name, $value): Model
+    public function set($name, $value)
     {
         $name = camel_case($name);
         $method = camel_case("set_{$name}");
@@ -171,7 +171,7 @@ abstract class Model implements EndpointsContract, IdentifierContract
     /**
      * @return array
      */
-    public function getHidden(): array
+    public function getHidden()
     {
         return $this->hidden;
     }
@@ -181,7 +181,7 @@ abstract class Model implements EndpointsContract, IdentifierContract
      *
      * @return \Mxgel\MPesa\Model
      */
-    public function setHidden(array $hidden): Model
+    public function setHidden($hidden)
     {
         $this->hidden = $hidden;
 
@@ -191,7 +191,7 @@ abstract class Model implements EndpointsContract, IdentifierContract
     /**
      * @return string
      */
-    public function getDateFormat(): string
+    public function getDateFormat()
     {
         return $this->dateFormat;
     }
@@ -201,7 +201,7 @@ abstract class Model implements EndpointsContract, IdentifierContract
      *
      * @return string
      */
-    protected function snakeCase(string $text)
+    protected function snakeCase($text)
     {
         return ltrim(strtolower(preg_replace('/[A-Z]([A-Z](?![a-z]))*/', '_$0', $text)), '_');
     }

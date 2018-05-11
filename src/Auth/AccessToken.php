@@ -48,7 +48,7 @@ class AccessToken extends Model
     /**
      * @return int
      */
-    public function getExpiresAt(): int
+    public function getExpiresAt()
     {
         return $this->expiresAt;
     }
@@ -59,7 +59,7 @@ class AccessToken extends Model
      * @return \Mxgel\MPesa\Auth\AccessToken
      *
      */
-    private function setExpiresAt(int $expiresAt): AccessToken
+    private function setExpiresAt($expiresAt)
     {
         $this->expiresAt = $expiresAt;
 
@@ -69,7 +69,7 @@ class AccessToken extends Model
     /**
      * @return int
      */
-    public function getExpiresIn(): int
+    public function getExpiresIn()
     {
         return $this->expiresIn;
     }
@@ -79,7 +79,7 @@ class AccessToken extends Model
      *
      * @return \Mxgel\MPesa\Auth\AccessToken
      */
-    public function setExpiresIn(int $expiresIn): AccessToken
+    public function setExpiresIn($expiresIn)
     {
         $this->expiresIn = $expiresIn;
 
@@ -89,7 +89,7 @@ class AccessToken extends Model
     /**
      * @return string
      */
-    public function getAccessToken(): string
+    public function getAccessToken()
     {
         return $this->accessToken;
     }
@@ -99,7 +99,7 @@ class AccessToken extends Model
      *
      * @return \Mxgel\MPesa\Auth\AccessToken
      */
-    public function setAccessToken(string $accessToken): AccessToken
+    public function setAccessToken($accessToken)
     {
         $this->accessToken = $accessToken;
 
@@ -109,7 +109,7 @@ class AccessToken extends Model
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         $result = [];
         $data = parent::toArray();

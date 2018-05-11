@@ -35,7 +35,7 @@ class LNMQ extends LNM
     /**
      * @return string
      */
-    public function getUri(): string
+    public function getUri()
     {
         return self::API_LNMO_QUERY_URL;
     }
@@ -43,7 +43,7 @@ class LNMQ extends LNM
     /**
      * @return string
      */
-    public function getCheckoutRequestID(): string
+    public function getCheckoutRequestID()
     {
         return $this->checkoutRequestID;
     }
@@ -53,7 +53,7 @@ class LNMQ extends LNM
      *
      * @return \Mxgel\MPesa\Requests\LNMQ
      */
-    public function setCheckoutRequestID(string $checkoutRequestID): LNMQ
+    public function setCheckoutRequestID($checkoutRequestID)
     {
         $this->checkoutRequestID = $checkoutRequestID;
 

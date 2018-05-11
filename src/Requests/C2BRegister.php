@@ -35,7 +35,7 @@ class C2BRegister extends Request
     /**
      * @return string
      */
-    public function getUri(): string
+    public function getUri()
     {
         return self::API_C2B_REGISTER_URL;
     }

@@ -14,11 +14,7 @@ namespace Mxgel\MPesa\Requests;
  *
  * @package Mxgel\MPesa\Requests
  */
-use App\Models\MPesaLNMO;
-use App\Models\User;
 use Event;
-use Mxgel\MPesa\Responses\Response;
-use Carbon\Carbon;
 
 /**
  * Class LNMO
@@ -63,7 +59,7 @@ class LNMO extends LNM
     /**
      * @return string
      */
-    public function getUri(): string
+    public function getUri()
     {
         return self::API_LNMO_URL;
     }
@@ -71,7 +67,7 @@ class LNMO extends LNM
     /**
      * @return string
      */
-    public function getTransactionType(): string
+    public function getTransactionType()
     {
         return $this->transactionType;
     }
@@ -79,7 +75,7 @@ class LNMO extends LNM
     /**
      * @param string $transactionType
      */
-    private function setTransactionType(string $transactionType)
+    private function setTransactionType($transactionType)
     {
         $this->transactionType = $transactionType;
     }
@@ -87,7 +83,7 @@ class LNMO extends LNM
     /**
      * @return string
      */
-    public function getAccountReference(): string
+    public function getAccountReference()
     {
         return $this->getPhoneNumber();
     }
@@ -97,7 +93,7 @@ class LNMO extends LNM
      *
      * @return mixed
      */
-    public function getUser(string $key = null)
+    public function getUser($key = null)
     {
         $userModel = config('mpesa.user_model');
         $user = $userModel::wherePhoneNumber($this->getPhoneNumber())->first();
@@ -109,7 +105,7 @@ class LNMO extends LNM
     /**
      * @return \Mxgel\MPesa\Responses\Response
      */
-    public function execute(): Response
+    public function execute()
     {
         $response = parent::execute();
 
@@ -129,7 +125,7 @@ class LNMO extends LNM
      *
      * @return \Mxgel\MPesa\Requests\LNMO
      */
-    public static function make(float $amount, int $phoneNumber, ?int $shortCode = null, string $desc = "Transaction")
+    public static function make($amount, $phoneNumber, $shortCode = null, $desc = "Transaction")
     {
         $shortCode = $shortCode ?: config('mpesa.LNMO_short_code');
 

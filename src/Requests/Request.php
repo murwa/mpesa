@@ -202,7 +202,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getShortCode(): string
+    public function getShortCode()
     {
         return $this->shortCode ?: config('mpesa.short_codes.0.short_code');
     }
@@ -210,7 +210,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return null|string
      */
-    public function getBillRefNumber(): ?string
+    public function getBillRefNumber()
     {
         return $this->billRefNumber ?: $this->setBillRefNumber()->getBillRefNumber();
     }
@@ -218,7 +218,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return int
      */
-    public function getMsisdn(): int
+    public function getMsisdn()
     {
         return $this->Msisdn;
     }
@@ -228,7 +228,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setMsisdn(int $Msisdn): Request
+    public function setMsisdn($Msisdn)
     {
         $this->Msisdn = $Msisdn;
 
@@ -238,7 +238,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return float
      */
-    public function getAmount(): float
+    public function getAmount()
     {
         return $this->amount;
     }
@@ -248,7 +248,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setAmount(float $amount): Request
+    public function setAmount($amount)
     {
         $this->amount = $amount;
 
@@ -260,7 +260,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setShortCode(string $shortCode): Request
+    public function setShortCode($shortCode)
     {
         $this->shortCode = $shortCode;
 
@@ -272,7 +272,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setBillRefNumber(string $billRefNumber = null): Request
+    public function setBillRefNumber($billRefNumber = null)
     {
         $this->billRefNumber = $billRefNumber ?: self::generateReferenceNumber();
 
@@ -282,7 +282,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getCommandID(): string
+    public function getCommandID()
     {
         return $this->commandID;
     }
@@ -290,7 +290,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getResponseType(): string
+    public function getResponseType()
     {
         return $this->responseType;
     }
@@ -298,7 +298,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getConfirmationURL(): string
+    public function getConfirmationURL()
     {
         if ($this->confirmationURL) {
             return $this->confirmationURL;
@@ -312,7 +312,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getValidationURL(): string
+    public function getValidationURL()
     {
         if ($this->validationURL) {
             return $this->validationURL;
@@ -328,7 +328,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setConfirmationURL(string $confirmationURL): Request
+    public function setConfirmationURL($confirmationURL)
     {
         $this->confirmationURL = $confirmationURL;
 
@@ -340,7 +340,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setValidationURL(string $validationURL): Request
+    public function setValidationURL($validationURL)
     {
         $this->validationURL = $validationURL;
 
@@ -350,7 +350,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getResultURL(): string
+    public function getResultURL()
     {
         if ($this->resultURL) {
             return $this->resultURL;
@@ -364,7 +364,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setResultURL(string $resultURL): Request
+    public function setResultURL($resultURL)
     {
         $this->resultURL = $resultURL;
 
@@ -374,7 +374,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getQueueTimeOutURL(): string
+    public function getQueueTimeOutURL()
     {
         if ($this->queueTimeOutURL) {
             return $this->queueTimeOutURL;
@@ -390,7 +390,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setQueueTimeOutURL(string $queueTimeOutURL): Request
+    public function setQueueTimeOutURL($queueTimeOutURL)
     {
         $this->queueTimeOutURL = $queueTimeOutURL;
 
@@ -402,7 +402,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setRemarks(string $remarks): Request
+    public function setRemarks($remarks)
     {
         $this->remarks = $remarks;
 
@@ -412,7 +412,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getRemarks(): string
+    public function getRemarks()
     {
         return $this->remarks;
     }
@@ -420,7 +420,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return int
      */
-    public function getPartyB(): int
+    public function getPartyB()
     {
         return $this->partyB;
     }
@@ -430,7 +430,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setPartyB(int $partyB): Request
+    public function setPartyB($partyB)
     {
         $this->partyB = $partyB;
 
@@ -440,7 +440,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return int
      */
-    public function getPartyA(): int
+    public function getPartyA()
     {
         return $this->partyA;
     }
@@ -450,7 +450,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setPartyA(int $partyA): Request
+    public function setPartyA($partyA)
     {
         $this->partyA = $partyA;
 
@@ -462,7 +462,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setCommandID(string $commandID): Request
+    public function setCommandID($commandID)
     {
         $this->commandID = $commandID;
 
@@ -472,7 +472,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getSecurityCredential(): string
+    public function getSecurityCredential()
     {
         if ($this->securityCredential) {
             return $this->securityCredential;
@@ -486,7 +486,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return $this
      */
-    public function setSecurityCredential(string $securityCredential)
+    public function setSecurityCredential($securityCredential)
     {
         $this->securityCredential = $securityCredential;
 
@@ -506,7 +506,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setOccasion(string $occasion): Request
+    public function setOccasion($occasion)
     {
         $this->occasion = $occasion;
 
@@ -516,7 +516,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getInitiatorName(): string
+    public function getInitiatorName()
     {
         if ($this->initiatorName) {
             return $this->initiatorName;
@@ -532,7 +532,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setInitiatorName(string $initiatorName): Request
+    public function setInitiatorName($initiatorName)
     {
         $this->initiatorName = $initiatorName;
 
@@ -542,7 +542,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getInitiator(): string
+    public function getInitiator()
     {
         if ($this->initiator) {
             return $this->initiator;
@@ -558,7 +558,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setInitiator(string $initiator): Request
+    public function setInitiator($initiator)
     {
         $this->initiator = $initiator;
 
@@ -568,7 +568,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return int
      */
-    public function getSenderIdentifierType(): int
+    public function getSenderIdentifierType()
     {
         return $this->senderIdentifierType;
     }
@@ -578,7 +578,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setSenderIdentifierType(int $senderIdentifierType): Request
+    public function setSenderIdentifierType($senderIdentifierType)
     {
         $this->senderIdentifierType = $senderIdentifierType;
 
@@ -588,7 +588,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getAccountReference(): string
+    public function getAccountReference()
     {
         return $this->accountReference;
     }
@@ -596,7 +596,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return int
      */
-    public function getRecieverIdentifierType(): int
+    public function getRecieverIdentifierType()
     {
         return $this->recieverIdentifierType;
     }
@@ -606,7 +606,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setRecieverIdentifierType(int $recieverIdentifierType): Request
+    public function setRecieverIdentifierType($recieverIdentifierType)
     {
         $this->recieverIdentifierType = $recieverIdentifierType;
 
@@ -616,7 +616,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getTransactionDesc(): string
+    public function getTransactionDesc()
     {
         return $this->transactionDesc;
     }
@@ -626,7 +626,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setTransactionDesc(string $transactionDesc): Request
+    public function setTransactionDesc($transactionDesc)
     {
         $this->transactionDesc = $transactionDesc;
 
@@ -636,7 +636,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getCallBackURL(): string
+    public function getCallBackURL()
     {
         if ($this->callBackURL) {
             return $this->callBackURL;
@@ -652,7 +652,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setCallBackURL(string $callBackURL): Request
+    public function setCallBackURL($callBackURL)
     {
         $this->callBackURL = $callBackURL;
 
@@ -662,7 +662,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return int
      */
-    public function getPhoneNumber(): int
+    public function getPhoneNumber()
     {
         return $this->phoneNumber;
     }
@@ -672,7 +672,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setPhoneNumber(int $phoneNumber): Request
+    public function setPhoneNumber($phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
 
@@ -682,7 +682,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getResultRouteName(): string
+    public function getResultRouteName()
     {
         return $this->resultRouteName;
     }
@@ -692,7 +692,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return Request
      */
-    public function setResponse(Response $response): Request
+    public function setResponse($response)
     {
         $this->response = $response;
 
@@ -702,7 +702,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return \Mxgel\MPesa\Responses\Response
      */
-    public function getResponse(): ?Response
+    public function getResponse()
     {
         return $this->response;
     }
@@ -712,7 +712,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return Request
      */
-    public function setMethod(string $method): Request
+    public function setMethod($method)
     {
         $this->method = $method;
 
@@ -722,7 +722,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return int
      */
-    public function getBusinessShortCode(): int
+    public function getBusinessShortCode()
     {
         return $this->businessShortCode;
     }
@@ -732,7 +732,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setBusinessShortCode(int $businessShortCode): Request
+    public function setBusinessShortCode($businessShortCode)
     {
         $this->businessShortCode = $businessShortCode;
 
@@ -742,7 +742,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return int
      */
-    public function getIdentifierType(): int
+    public function getIdentifierType()
     {
         return $this->identifierType;
     }
@@ -752,7 +752,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setIdentifierType(int $identifierType): Request
+    public function setIdentifierType($identifierType)
     {
         $this->identifierType = $identifierType;
 
@@ -762,7 +762,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getTransactionID(): string
+    public function getTransactionID()
     {
         return $this->transactionID;
     }
@@ -772,7 +772,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setTransactionID(string $transactionID): Request
+    public function setTransactionID($transactionID)
     {
         $this->transactionID = $transactionID;
 
@@ -782,7 +782,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getTimestamp(): string
+    public function getTimestamp()
     {
         return $this->timestamp;
     }
@@ -790,7 +790,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getPassword(): string
+    public function getPassword()
     {
         return $this->password;
     }
@@ -800,7 +800,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    protected function setPassword(string $password): Request
+    protected function setPassword($password)
     {
         $this->password = $password;
 
@@ -810,7 +810,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    protected function generatePassword(): string
+    protected function generatePassword()
     {
         $code = $this->getBusinessShortCode();
         $passKey = config('mpesa.LNMO_passkey');
@@ -824,7 +824,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return \Mxgel\MPesa\Requests\Request
      */
-    public function setTimestamp(string $timestamp): Request
+    public function setTimestamp($timestamp)
     {
         $this->timestamp = $timestamp;
 
@@ -837,7 +837,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      * @return \Mxgel\MPesa\Responses\Response
      * @throws \Mxgel\MPesa\Exceptions\SafaricomException
      */
-    public function execute(): Response
+    public function execute()
     {
         $client = self::getHttpClient([
             'headers' => [
@@ -871,7 +871,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    public function getMethod(): string
+    public function getMethod()
     {
         return $this->method;
     }
@@ -889,7 +889,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      *
      * @return Request
      */
-    public function setAccountReference(string $accountReference): Request
+    public function setAccountReference($accountReference)
     {
         $this->accountReference = $accountReference;
 

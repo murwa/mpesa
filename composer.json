@@ -4,7 +4,8 @@
   "type": "library",
   "require": {
     "laravel/framework": "~5.5",
-    "guzzlehttp/guzzle": "^6.3"
+    "guzzlehttp/guzzle": "^6.3",
+    "nesbot/carbon": "~1.18"
   },
   "license": "MIT",
   "authors": [
@@ -16,7 +17,10 @@
   "autoload": {
     "psr-4": {
       "Mxgel\\MPesa\\": "src/"
-    }
+    },
+    "files": [
+      "helpers.php"
+    ]
   },
   "minimum-stability": "dev",
   "extra": {

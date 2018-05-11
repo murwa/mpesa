@@ -53,7 +53,7 @@ class Reversal extends Request
     /**
      * @return string
      */
-    public function getUri(): string
+    public function getUri()
     {
         return self::API_REVERSAL;
     }
@@ -61,7 +61,7 @@ class Reversal extends Request
     /**
      * @return string
      */
-    public function getReceiverParty(): string
+    public function getReceiverParty()
     {
         return $this->receiverParty;
     }
@@ -71,7 +71,7 @@ class Reversal extends Request
      *
      * @return \Mxgel\MPesa\Requests\Reversal
      */
-    public function setReceiverParty(string $receiverParty): Reversal
+    public function setReceiverParty($receiverParty)
     {
         $this->receiverParty = $receiverParty;
 
@@ -81,7 +81,7 @@ class Reversal extends Request
     /**
      * @return string
      */
-    public function getReceiverIdentifierType(): string
+    public function getReceiverIdentifierType()
     {
         return $this->receiverIdentifierType;
     }
@@ -91,7 +91,7 @@ class Reversal extends Request
      *
      * @return \Mxgel\MPesa\Requests\Reversal
      */
-    public function setReceiverIdentifierType(string $receiverIdentifierType): Reversal
+    public function setReceiverIdentifierType($receiverIdentifierType)
     {
         $this->receiverIdentifierType = $receiverIdentifierType;
 

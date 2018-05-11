@@ -36,7 +36,7 @@ class Status extends Request
     /**
      * @return string
      */
-    public function getUri(): string
+    public function getUri()
     {
         return self::API_TRANSACTION_STATUS;
     }

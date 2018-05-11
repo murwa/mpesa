@@ -42,7 +42,7 @@ class B2C extends Request
     /**
      * @return string
      */
-    public function getUri(): string
+    public function getUri()
     {
         return self::API_B2C_URL;
     }

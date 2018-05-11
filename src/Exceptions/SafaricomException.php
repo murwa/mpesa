@@ -30,7 +30,7 @@ class SafaricomException extends Exception
      * @param \Exception|null $previous
      * @param int $code
      */
-    public function __construct(?string $message = null, Exception $previous = null, $code = 0)
+    public function __construct($message = null, $previous = null, $code = 0)
     {
         $this->setErrorCode($code);
         parent::__construct($message ?: "", $code ? substr($code, 0, strpos($code, '.')) : 0, $previous);
@@ -42,7 +42,7 @@ class SafaricomException extends Exception
      *
      * @return \Mxgel\MPesa\Exceptions\SafaricomException
      */
-    public static function createFromString(string $content, Exception $previous = null): SafaricomException
+    public static function createFromString($content, $previous = null)
     {
         $content = json_decode($content, true);
         $code = array_get($content, 'errorCode');
@@ -53,7 +53,7 @@ class SafaricomException extends Exception
     /**
      * @return null|string
      */
-    public function getErrorCode(): ?string
+    public function getErrorCode()
     {
         return $this->errorCode;
     }
@@ -63,7 +63,7 @@ class SafaricomException extends Exception
      *
      * @return SafaricomException
      */
-    protected function setErrorCode(?string $errorCode)
+    protected function setErrorCode($errorCode)
     {
         $this->errorCode = $errorCode;
 

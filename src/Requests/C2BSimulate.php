@@ -31,7 +31,7 @@ class C2BSimulate extends Request
     /**
      * @return string
      */
-    public function getCommandID(): string
+    public function getCommandID()
     {
         return self::COMMAND_CUSTOMER_PAY_BILL_ONLINE;
     }
@@ -39,7 +39,7 @@ class C2BSimulate extends Request
     /**
      * @return string
      */
-    public function getUri(): string
+    public function getUri()
     {
         return self::API_C2B_SIMULATE_URL;
     }

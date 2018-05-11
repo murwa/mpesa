@@ -92,7 +92,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getTransactionType(): ?string
+    public function getTransactionType()
     {
         return $this->transactionType;
     }
@@ -102,7 +102,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setTransactionType(?string $transactionType): C2B
+    public function setTransactionType(?string $transactionType)
     {
         $this->transactionType = $transactionType;
 
@@ -112,7 +112,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getTransID(): string
+    public function getTransID()
     {
         return $this->transID;
     }
@@ -122,7 +122,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setTransID(string $transID): C2B
+    public function setTransID($transID)
     {
         $this->transID = $transID;
 
@@ -132,7 +132,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getTransTime(): string
+    public function getTransTime()
     {
         return $this->transTime;
     }
@@ -142,7 +142,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setTransTime(string $transTime): C2B
+    public function setTransTime($transTime)
     {
         $this->transTime = $transTime;
 
@@ -152,7 +152,7 @@ class C2B extends Response
     /**
      * @return float
      */
-    public function getTransAmount(): float
+    public function getTransAmount()
     {
         return $this->transAmount;
     }
@@ -162,7 +162,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setTransAmount(float $transAmount): C2B
+    public function setTransAmount($transAmount)
     {
         $this->transAmount = $transAmount;
 
@@ -172,7 +172,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getBusinessShortCode(): string
+    public function getBusinessShortCode()
     {
         return $this->businessShortCode;
     }
@@ -182,7 +182,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setBusinessShortCode(string $businessShortCode): C2B
+    public function setBusinessShortCode($businessShortCode)
     {
         $this->businessShortCode = $businessShortCode;
 
@@ -192,7 +192,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getBillRefNumber(): string
+    public function getBillRefNumber()
     {
         return $this->billRefNumber;
     }
@@ -202,7 +202,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setBillRefNumber(string $billRefNumber): C2B
+    public function setBillRefNumber($billRefNumber)
     {
         $this->billRefNumber = $billRefNumber;
 
@@ -212,7 +212,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getInvoiceNumber(): ?string
+    public function getInvoiceNumber()
     {
         return $this->invoiceNumber;
     }
@@ -222,7 +222,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setInvoiceNumber(?string $invoiceNumber): C2B
+    public function setInvoiceNumber($invoiceNumber)
     {
         $this->invoiceNumber = $invoiceNumber;
 
@@ -232,7 +232,7 @@ class C2B extends Response
     /**
      * @return float
      */
-    public function getOrgAccountBalance(): ?float
+    public function getOrgAccountBalance()
     {
         return $this->orgAccountBalance;
     }
@@ -242,7 +242,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setOrgAccountBalance(?float $orgAccountBalance): C2B
+    public function setOrgAccountBalance(?float $orgAccountBalance)
     {
         $this->orgAccountBalance = $orgAccountBalance;
 
@@ -252,7 +252,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getThirdPartyTransID(): ?string
+    public function getThirdPartyTransID()
     {
         return $this->thirdPartyTransID;
     }
@@ -262,7 +262,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setThirdPartyTransID(?string $thirdPartyTransID): C2B
+    public function setThirdPartyTransID(?string $thirdPartyTransID)
     {
         $this->thirdPartyTransID = $thirdPartyTransID;
 
@@ -272,7 +272,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getMsisdn(): string
+    public function getMsisdn()
     {
         return $this->msisdn;
     }
@@ -282,7 +282,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setMsisdn(string $msisdn): C2B
+    public function setMsisdn($msisdn)
     {
         $this->msisdn = $msisdn;
 
@@ -292,7 +292,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName()
     {
         return $this->firstName;
     }
@@ -302,7 +302,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setFirstName(string $firstName): C2B
+    public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
 
@@ -312,7 +312,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getMiddleName(): ?string
+    public function getMiddleName()
     {
         return $this->middleName;
     }
@@ -322,7 +322,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setMiddleName(?string $middleName): C2B
+    public function setMiddleName(?string $middleName)
     {
         $this->middleName = $middleName;
 
@@ -332,7 +332,7 @@ class C2B extends Response
     /**
      * @return string
      */
-    public function getLastName(): ?string
+    public function getLastName()
     {
         return $this->lastName;
     }
@@ -342,7 +342,7 @@ class C2B extends Response
      *
      * @return C2B
      */
-    public function setLastName(?string $lastName): C2B
+    public function setLastName(?string $lastName)
     {
         $this->lastName = $lastName;
 
@@ -352,7 +352,7 @@ class C2B extends Response
     /**
      * @return array
      */
-    public function forDB(): array
+    public function forDB()
     {
         $data = $this->toArray();
         $keys = array_map(function ($key) {

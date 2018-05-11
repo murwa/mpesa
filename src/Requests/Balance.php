@@ -40,7 +40,7 @@ class Balance extends Request
     /**
      * @return string
      */
-    public function getUri(): string
+    public function getUri()
     {
         return self::API_ACCOUNT_BALANCE;
     }
@@ -48,7 +48,7 @@ class Balance extends Request
     /**
      * @return string
      */
-    public function getCommandID(): string
+    public function getCommandID()
     {
         return self::COMMAND_ACCOUNT_BALANCE;
     }

@@ -19,10 +19,10 @@ interface RequestContract
     /**
      * @return string
      */
-    public function getMethod(): string ;
+    public function getMethod() ;
 
     /**
      * @return string
      */
-    public function getUri(): string ;
+    public function getUri() ;
 }

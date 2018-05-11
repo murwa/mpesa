@@ -55,7 +55,7 @@ class LNMOCallbackResponse extends Response
     /**
      * @return float
      */
-    public function getAmount(): float
+    public function getAmount()
     {
         return $this->amount;
     }
@@ -63,7 +63,7 @@ class LNMOCallbackResponse extends Response
     /**
      * @param float $amount
      */
-    public function setAmount(float $amount)
+    public function setAmount($amount)
     {
         $this->amount = $amount;
     }
@@ -71,7 +71,7 @@ class LNMOCallbackResponse extends Response
     /**
      * @return string
      */
-    public function getMpesaReceiptNumber(): ?string
+    public function getMpesaReceiptNumber()
     {
         return $this->mpesaReceiptNumber;
     }
@@ -79,7 +79,7 @@ class LNMOCallbackResponse extends Response
     /**
      * @param string $mpesaReceiptNumber
      */
-    public function setMpesaReceiptNumber(string $mpesaReceiptNumber)
+    public function setMpesaReceiptNumber($mpesaReceiptNumber)
     {
         $this->mpesaReceiptNumber = $mpesaReceiptNumber;
     }
@@ -87,7 +87,7 @@ class LNMOCallbackResponse extends Response
     /**
      * @return float
      */
-    public function getBalance(): ?float
+    public function getBalance()
     {
         return $this->balance;
     }
@@ -95,7 +95,7 @@ class LNMOCallbackResponse extends Response
     /**
      * @param float $balance
      */
-    public function setBalance(?float $balance)
+    public function setBalance($balance)
     {
         $this->balance = $balance;
     }
@@ -103,7 +103,7 @@ class LNMOCallbackResponse extends Response
     /**
      * @return int
      */
-    public function getPhoneNumber(): int
+    public function getPhoneNumber()
     {
         return $this->phoneNumber;
     }
@@ -111,7 +111,7 @@ class LNMOCallbackResponse extends Response
     /**
      * @param int $phoneNumber
      */
-    public function setPhoneNumber(int $phoneNumber)
+    public function setPhoneNumber($phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
     }

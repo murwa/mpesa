@@ -23,7 +23,7 @@ class Security
      *
      * @return string
      */
-    public static function generateCredentials(): string
+    public static function generateCredentials()
     {
         $password = config('mpesa.short_codes.0.security_credential');
         $resource = self::getCertificateResource();

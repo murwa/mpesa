@@ -73,7 +73,7 @@ class Response extends Model implements ResultCodesContract
     /**
      * @return null|string
      */
-    public function getResponseCode(): ?string
+    public function getResponseCode()
     {
         return $this->responseCode;
     }
@@ -83,7 +83,7 @@ class Response extends Model implements ResultCodesContract
      *
      * @return \Mxgel\MPesa\Responses\Response
      */
-    public function setResponseCode(string $responseCode): Response
+    public function setResponseCode($responseCode)
     {
         $this->responseCode = $responseCode;
 
@@ -93,7 +93,7 @@ class Response extends Model implements ResultCodesContract
     /**
      * @return null|string
      */
-    public function getResponseDescription(): ?string
+    public function getResponseDescription()
     {
         return $this->responseDescription;
     }
@@ -103,7 +103,7 @@ class Response extends Model implements ResultCodesContract
      *
      * @return \Mxgel\MPesa\Responses\Response
      */
-    public function setResponseDescription(string $responseDescription): Response
+    public function setResponseDescription($responseDescription)
     {
         $this->responseDescription = $responseDescription;
 
@@ -113,7 +113,7 @@ class Response extends Model implements ResultCodesContract
     /**
      * @return null|string
      */
-    public function getOriginatorConversationID(): ?string
+    public function getOriginatorConversationID()
     {
         // For some reason, safaricom's API returns a misspelled `originatorCoversationID`.
         // Let's force this in
@@ -125,7 +125,7 @@ class Response extends Model implements ResultCodesContract
      *
      * @return \Mxgel\MPesa\Responses\Response
      */
-    public function setOriginatorConversationID(string $originatorConversationID): Response
+    public function setOriginatorConversationID($originatorConversationID)
     {
         $this->originatorConversationID = $originatorConversationID;
 
@@ -135,7 +135,7 @@ class Response extends Model implements ResultCodesContract
     /**
      * @return null|string
      */
-    public function getConversationID(): ?string
+    public function getConversationID()
     {
         return $this->conversationID;
     }
@@ -145,7 +145,7 @@ class Response extends Model implements ResultCodesContract
      *
      * @return \Mxgel\MPesa\Responses\Response
      */
-    public function setConversationID(string $conversationID): Response
+    public function setConversationID($conversationID)
     {
         $this->conversationID = $conversationID;
 
@@ -155,7 +155,7 @@ class Response extends Model implements ResultCodesContract
     /**
      * @return null|string
      */
-    public function getMerchantRequestID(): ?string
+    public function getMerchantRequestID()
     {
         return $this->merchantRequestID;
     }
@@ -165,7 +165,7 @@ class Response extends Model implements ResultCodesContract
      *
      * @return \Mxgel\MPesa\Responses\Response
      */
-    public function setMerchantRequestID(string $merchantRequestID): Response
+    public function setMerchantRequestID($merchantRequestID)
     {
         $this->merchantRequestID = $merchantRequestID;
 
@@ -175,7 +175,7 @@ class Response extends Model implements ResultCodesContract
     /**
      * @return null|string
      */
-    public function getCheckoutRequestID(): ?string
+    public function getCheckoutRequestID()
     {
         return $this->checkoutRequestID;
     }
@@ -185,7 +185,7 @@ class Response extends Model implements ResultCodesContract
      *
      * @return \Mxgel\MPesa\Responses\Response
      */
-    public function setCheckoutRequestID(string $checkoutRequestID): Response
+    public function setCheckoutRequestID($checkoutRequestID)
     {
         $this->checkoutRequestID = $checkoutRequestID;
 
@@ -195,7 +195,7 @@ class Response extends Model implements ResultCodesContract
     /**
      * @return null|string
      */
-    public function getResultDesc(): ?string
+    public function getResultDesc()
     {
         return $this->resultDesc;
     }
@@ -205,7 +205,7 @@ class Response extends Model implements ResultCodesContract
      *
      * @return \Mxgel\MPesa\Responses\Response
      */
-    public function setResultDesc(string $resultDesc): Response
+    public function setResultDesc($resultDesc)
     {
         $this->resultDesc = $resultDesc;
 
@@ -215,7 +215,7 @@ class Response extends Model implements ResultCodesContract
     /**
      * @return null|string
      */
-    public function getResultCode(): ?string
+    public function getResultCode()
     {
         return $this->resultCode;
     }
@@ -225,7 +225,7 @@ class Response extends Model implements ResultCodesContract
      *
      * @return \Mxgel\MPesa\Responses\Response
      */
-    public function setResultCode(string $resultCode): Response
+    public function setResultCode($resultCode)
     {
         $this->resultCode = $resultCode;
 
@@ -235,7 +235,7 @@ class Response extends Model implements ResultCodesContract
     /**
      * @return null|string
      */
-    public function getCustomerMessage(): ?string
+    public function getCustomerMessage()
     {
         return $this->customerMessage;
     }
@@ -245,7 +245,7 @@ class Response extends Model implements ResultCodesContract
      *
      * @return \Mxgel\MPesa\Responses\Response
      */
-    public function setCustomerMessage(string $customerMessage): Response
+    public function setCustomerMessage($customerMessage)
     {
         $this->customerMessage = $customerMessage;
 
