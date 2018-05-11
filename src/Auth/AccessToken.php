@@ -114,9 +114,19 @@ class AccessToken extends Model
         $result = [];
         $data = parent::toArray();
         foreach ($data as $key => $value) {
-            $result[ snake_case($key) ] = $value;
+            $result[snake_case($key)] = $value;
         }
 
         return $result;
+    }
+
+    /**
+     * Check if token has expired
+     *
+     * @return bool
+     */
+    public function expired()
+    {
+        return new Carbon() < $this->getExpiresAt();
     }
 }
