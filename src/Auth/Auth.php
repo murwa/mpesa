@@ -20,17 +20,27 @@ use Mxgel\MPesa\Model;
 class Auth extends Model implements EndpointsContract
 {
     /**
-     * @param null $key
-     * @param null $secret
+     * @var string Key
+     */
+    private $key;
+
+    /**
+     * @var string Secret
+     */
+    private $secret;
+
+    /**
+     * Fetch access token
      *
      * @return \Mxgel\MPesa\Auth\AccessToken
+     *
      */
-    public static function accessToken($key = null, $secret = null)
+    public function accessToken()
     {
-        $response = self::getHttpClient()->get(self::API_GENERATE_ACCESS_TOKEN, [
+        $response = Model::getHttpClient()->get(self::API_GENERATE_ACCESS_TOKEN, [
             'auth' => [
-                $key,
-                $secret,
+                $this->key,
+                $this->secret,
             ],
         ]);
 
@@ -38,12 +48,39 @@ class Auth extends Model implements EndpointsContract
     }
 
     /**
+     * Prepare access token to send in request
+     *
      * @return string
+     *
      */
-    public static function getAuthorizationHeader()
+    public function getAuthorizationHeader()
     {
-        $accessToken = self::accessToken()->getAccessToken();
+        $accessToken = $this->accessToken()->getAccessToken();
 
         return "Bearer {$accessToken}";
+    }
+
+    /**
+     * @param string $key
+     *
+     * @return Auth
+     */
+    public function setKey($key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @param string $secret
+     *
+     * @return Auth
+     */
+    public function setSecret($secret)
+    {
+        $this->secret = $secret;
+
+        return $this;
     }
 }

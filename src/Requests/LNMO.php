@@ -90,11 +90,13 @@ class LNMO extends LNM
 
 
     /**
+     * @param \Mxgel\MPesa\Auth\Auth $auth
+     *
      * @return \Mxgel\MPesa\Responses\Response
      */
-    public function execute()
+    public function execute($auth)
     {
-        $response = parent::execute();
+        $response = parent::execute($auth);
 
         $this->setResponse($response);
 

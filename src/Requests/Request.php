@@ -789,14 +789,16 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * Execute request and return response
      *
+     * @param $auth Auth
+     *
      * @return \Mxgel\MPesa\Responses\Response
      * @throws \Mxgel\MPesa\Exceptions\SafaricomException
      */
-    public function execute()
+    public function execute($auth)
     {
         $client = self::getHttpClient([
             'headers' => [
-                'Authorization' => Auth::getAuthorizationHeader(),
+                'Authorization' => $auth->getAuthorizationHeader(),
                 'Content-Type'  => "application/json",
             ],
         ]);
