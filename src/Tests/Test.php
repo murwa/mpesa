@@ -26,7 +26,7 @@ class Test
      *
      * @param string $test
      */
-    public function __construct(string $test)
+    public function __construct($test)
     {
         $this->test = $test;
     }
@@ -34,7 +34,7 @@ class Test
     /**
      * @return array
      */
-    public function getData(): array
+    public function getData()
     {
         $contents = file_get_contents($this->getTestFileName());
 
@@ -44,7 +44,7 @@ class Test
     /**
      * @return string
      */
-    protected function getTestFileName(): string
+    protected function getTestFileName()
     {
         return __DIR__ . "/" . $this->test . ".json";
     }
@@ -54,7 +54,7 @@ class Test
      *
      * @return Test
      */
-    public function setTest(string $test): Test
+    public function setTest($test)
     {
         $this->test = $test;
 
