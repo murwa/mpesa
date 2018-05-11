@@ -29,8 +29,8 @@ class Auth extends Model implements EndpointsContract
     {
         $response = self::getHttpClient()->get(self::API_GENERATE_ACCESS_TOKEN, [
             'auth' => [
-                $key ?: config('mpesa.key'),
-                $secret ?: config('mpesa.secret'),
+                $key,
+                $secret,
             ],
         ]);
 

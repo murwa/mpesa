@@ -204,7 +204,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      */
     public function getShortCode()
     {
-        return $this->shortCode ?: config('mpesa.short_codes.0.short_code');
+        return $this->shortCode;
     }
 
     /**
@@ -300,13 +300,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      */
     public function getConfirmationURL()
     {
-        if ($this->confirmationURL) {
-            return $this->confirmationURL;
-        } else {
-            $route = config('mpesa.routes.confirmation');
-
-            return $this->setConfirmationURL(route($route))->getConfirmationURL();
-        }
+        return $this->confirmationURL;
     }
 
     /**
@@ -314,13 +308,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      */
     public function getValidationURL()
     {
-        if ($this->validationURL) {
-            return $this->validationURL;
-        } else {
-            $route = config('mpesa.routes.validation');
-
-            return $this->setValidationURL(route($route))->getValidationURL();
-        }
+        return $this->validationURL;
     }
 
     /**
@@ -352,11 +340,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      */
     public function getResultURL()
     {
-        if ($this->resultURL) {
-            return $this->resultURL;
-        } else {
-            return $this->setResultURL(route($this->getResultRouteName()))->getResultURL();
-        }
+        return $this->resultURL;
     }
 
     /**
@@ -376,13 +360,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      */
     public function getQueueTimeOutURL()
     {
-        if ($this->queueTimeOutURL) {
-            return $this->queueTimeOutURL;
-        } else {
-            $route = config('mpesa.routes.timeout');
-
-            return $this->setQueueTimeOutURL(route($route))->getQueueTimeOutURL();
-        }
+        return $this->queueTimeOutURL;
     }
 
     /**
@@ -474,11 +452,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      */
     public function getSecurityCredential()
     {
-        if ($this->securityCredential) {
-            return $this->securityCredential;
-        } else {
-            return $this->setSecurityCredential(Security::generateCredentials())->getSecurityCredential();
-        }
+        return $this->securityCredential;
     }
 
     /**
@@ -518,13 +492,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      */
     public function getInitiatorName()
     {
-        if ($this->initiatorName) {
-            return $this->initiatorName;
-        } else {
-            $name = config('mpesa.short_codes.0.initiator_name');
-
-            return $this->setInitiatorName($name)->getInitiatorName();
-        }
+        return $this->initiatorName;
     }
 
     /**
@@ -544,13 +512,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      */
     public function getInitiator()
     {
-        if ($this->initiator) {
-            return $this->initiator;
-        } else {
-            $name = config('mpesa.short_codes.0.initiator_name');
-
-            return $this->setInitiator($name)->getInitiator();
-        }
+        return $this->initiator;
     }
 
     /**
@@ -638,13 +600,7 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
      */
     public function getCallBackURL()
     {
-        if ($this->callBackURL) {
-            return $this->callBackURL;
-        } else {
-            $route = config('mpesa.routes.callback');
-
-            return $this->setCallBackURL(route($route))->getCallBackURL();
-        }
+        return $this->callBackURL;
     }
 
     /**
@@ -810,10 +766,9 @@ abstract class Request extends Model implements CommandsContract, RequestContrac
     /**
      * @return string
      */
-    protected function generatePassword()
+    protected function generatePassword($passKey)
     {
         $code = $this->getBusinessShortCode();
-        $passKey = config('mpesa.LNMO_passkey');
         $timestamp = $this->getTimestamp();
 
         return base64_encode("{$code}{$passKey}{$timestamp}");

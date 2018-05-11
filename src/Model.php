@@ -78,12 +78,14 @@ abstract class Model implements EndpointsContract, IdentifierContract
      *
      * @param array $options
      *
+     * @param bool $live
+     *
      * @return \GuzzleHttp\Client
      */
-    protected static function getHttpClient($options = [])
+    protected static function getHttpClient($options = [], $live = false)
     {
         return new Client(array_merge([
-            'base_uri' => config('mpesa.environment') === 'live' ? self::LIVE_URL : self::SANDBOX_URL,
+            'base_uri' => $live === 'live' ? self::LIVE_URL : self::SANDBOX_URL,
         ], $options));
     }
 
@@ -194,15 +196,5 @@ abstract class Model implements EndpointsContract, IdentifierContract
     public function getDateFormat()
     {
         return $this->dateFormat;
-    }
-
-    /**
-     * @param string $text
-     *
-     * @return string
-     */
-    protected function snakeCase($text)
-    {
-        return ltrim(strtolower(preg_replace('/[A-Z]([A-Z](?![a-z]))*/', '_$0', $text)), '_');
     }
 }

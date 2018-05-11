@@ -47,7 +47,7 @@ class SafaricomException extends Exception
         $content = json_decode($content, true);
         $code = array_get($content, 'errorCode');
 
-        return new self(array_get($content, 'errorMessage') ?: config('errors' . $code), $previous, $code);
+        return new self(array_get($content, 'errorMessage', ""), $previous, $code);
     }
 
     /**

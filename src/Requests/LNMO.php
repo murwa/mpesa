@@ -88,19 +88,6 @@ class LNMO extends LNM
         return $this->getPhoneNumber();
     }
 
-    /**
-     * @param string|null $key
-     *
-     * @return mixed
-     */
-    public function getUser($key = null)
-    {
-        $userModel = config('mpesa.user_model');
-        $user = $userModel::wherePhoneNumber($this->getPhoneNumber())->first();
-
-        return $user && $key ? $user->{$key} : $user;
-    }
-
 
     /**
      * @return \Mxgel\MPesa\Responses\Response
@@ -110,7 +97,6 @@ class LNMO extends LNM
         $response = parent::execute();
 
         $this->setResponse($response);
-        Event::dispatch('mpesa:requests.lnmo.executed', $this);
 
         return $response;
     }
@@ -127,8 +113,6 @@ class LNMO extends LNM
      */
     public static function make($amount, $phoneNumber, $shortCode = null, $desc = "Transaction")
     {
-        $shortCode = $shortCode ?: config('mpesa.LNMO_short_code');
-
         return new self([
             "businessShortCode" => $shortCode,
             "amount"            => $amount,
