@@ -18,6 +18,9 @@ use Carbon\Carbon;
  */
 abstract class LNM extends Request
 {
+    /**
+     * @var
+     */
     private $passKey;
 
     /**

@@ -127,6 +127,6 @@ class AccessToken extends Model
      */
     public function expired()
     {
-        return new Carbon() < $this->getExpiresAt();
+        return with(new Carbon())->timestamp > $this->getExpiresAt();
     }
 }
