@@ -21,26 +21,29 @@ class Security
     /**
      * Generate security credentials from password and certificate
      *
+     * @param string $password Security Credential provided by safaricom
+     * @param string $path     Path to certificate
+     *
      * @return string
      */
-    public static function generateCredentials()
+    public static function generateCredentials($password, $path = null)
     {
-        $password = config('mpesa.short_codes.0.security_credential');
-        $resource = self::getCertificateResource();
-
-        openssl_public_encrypt($password, $encrypted, $resource, OPENSSL_PKCS1_PADDING);
+        openssl_public_encrypt($password, $encrypted, self::getCertificateResource($path), OPENSSL_PKCS1_PADDING);
 
         return base64_encode($encrypted);
     }
 
     /**
-     * @return resource
+     * Fetch a certificate from storage
      *
+     * @param string $path Path to certificate
+     *
+     * @return resource
      * @throws \Mxgel\MPesa\Exceptions\InvalidCertificateException
      */
-    private static function getCertificateResource()
+    private static function getCertificateResource($path = null)
     {
-        $cert = storage_path('cert.cer');
+        $cert = $path ?: storage_path('cert.cer');
 
         $fp = fopen($cert, "r");
         $pub_key = fread($fp, 8192);
