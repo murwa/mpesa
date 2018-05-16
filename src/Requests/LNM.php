@@ -31,9 +31,6 @@ abstract class LNM extends Request
     public function __construct($content = null)
     {
         parent::__construct($content);
-
-        $this->setTimestamp(with(new Carbon('now'))->format($this->getDateFormat()));
-        $this->setPassword($this->generatePassword($this->getPassKey()));
     }
 
     /**
@@ -56,4 +53,18 @@ abstract class LNM extends Request
         return $this;
     }
 
+    /**
+     * Before execute, set timestamp and generate password
+     *
+     * @param \Mxgel\MPesa\Auth\Auth $auth
+     *
+     * @return \Mxgel\MPesa\Responses\Response
+     */
+    public function execute($auth)
+    {
+        $this->setTimestamp(with(new Carbon('now'))->format($this->getDateFormat()));
+        $this->setPassword($this->generatePassword($this->getPassKey()));
+
+        return parent::execute($auth);
+    }
 }
