@@ -45,7 +45,7 @@ class LNMOCallbackResponse extends Response
      */
     public function __construct($content = null)
     {
-        $key = array_key_exists('Body', $content) ? 'Body' : 'stkCallback';
+        $key = array_key_exists('Body', $content) ? 'Body.stkCallback' : 'stkCallback';
         $content = array_get($content, $key);
         $items = array_except($content, 'CallbackMetadata');
         foreach (array_get($content, 'CallbackMetadata.Item', []) as $value) {
