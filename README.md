@@ -44,7 +44,7 @@ This API is used to initiate online payment on behalf of a customer.
 
 #### Example
 
-Sample code to initiate the payment can be something like this (Use `Mxgel\MPesa\Requests\LNMO`)...pssst, this is laravel.
+Sample code (in Laravel) to initiate the payment can be something like this (use `Mxgel\MPesa\Requests\LNMO`).
 
 ```php
 $request = LNMO::make($amount, $phoneNumber, $shortCode, 'Wallet top up');
